@@ -8,3 +8,15 @@ from model.estudiante import Estudiante, EstudianteSchema
 from model.administrativo import Administrativo, AdministrativoSchema
 from model.asistencia import Asistencia, AsistenciaSchema
 
+usuario_schema = UsuarioSchema()
+usuario_schema = UsuarioSchema(many=True)
+
+estudiante_schema = EstudianteSchema()
+estudiante_schema = EstudianteSchema(many=True)
+
+administrativo_schema = AdministrativoSchema()
+administrativo_schema= administrativo_schema(many=True)
+
+asistencia_schema = AsistenciaSchema()
+asistencia_schema = AsistenciaSchema(many=True)
+
