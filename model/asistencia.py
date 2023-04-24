@@ -16,6 +16,6 @@ def __init__(self,registrodentrada,registrosalida, fechayhora):
 with app.app_context():
     bd.create_all()
 
-class EstudianteSchema(ma.Schema):
+class AsistenciaSchema(ma.Schema):
     class Meta:
         fields=('id','registrodentrada','registrosalida', 'fechayhora')
