@@ -1,3 +1,5 @@
+from flask import render_template
+from datetime import date, datetime, timedelta
 from config.db import bd,app,ma
 class Asistencia(bd.Model):
     __tablename__='tblasistencia'
@@ -5,12 +7,15 @@ class Asistencia(bd.Model):
     idEstudiante_fk = bd.Column(bd.Integer, bd.ForeignKey('tblestudiante.id'))
     registrodentrada=bd.Column(bd.Integer)
     registrosalida=bd.Column(bd.Integer)
-    fechayhora=bd.Column(bd.String(50))
+    fechayhora_entrd=bd.Column(bd.DateTime)
+    fechayhora_sali=bd.Column(bd.DateTime)
     
-def __init__(self,registrodentrada,registrosalida, fechayhora):
-    self.registrodentrada = registrodentrada
-    self.registrosalida = registrosalida
-    self.fechayhora = fechayhora
+    def __init__(self,registrodentrada,registrosalida, fechayhora_entrd, fechayhora_salid):
+        self.registrodentrada = registrodentrada
+        self.registrosalida = registrosalida
+        self.fechayhora_entrd = fechayhora_entrd
+        self.fechayhora_sali = fechayhora_salid
+        
     
    
 with app.app_context():
@@ -18,4 +23,4 @@ with app.app_context():
 
 class AsistenciaSchema(ma.Schema):
     class Meta:
-        fields=('id','registrodentrada','registrosalida', 'fechayhora','idEstudiante_fk')
+        fields=('id','registrodentrada','registrosalida', 'fechayhora_entrd','idEstudiante_fk','fechayhora_salid')

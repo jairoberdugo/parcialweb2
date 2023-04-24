@@ -7,10 +7,10 @@ class Estudiante(bd.Model):
     estado = bd.Column(bd.String(20))
     Idusuario_fk = bd.Column(bd.Integer, bd.ForeignKey('tblusuario.id'))
     
-def __init__(self,fullname,email, estado):
-    self.fullname = fullname
-    self.email = email
-    self.estado = estado
+    def __init__(self,fullname,email, estado):
+        self.fullname = fullname
+        self.email = email
+        self.estado = estado
     
    
 with app.app_context():
