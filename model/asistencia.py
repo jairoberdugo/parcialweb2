@@ -3,8 +3,9 @@ class Asistencia(bd.Model):
     __tablename__='tblasistencia'
     id = bd.Column(bd.Integer,primary_key=True)
     idEstudiante_fk = bd.Column(bd.Integer, bd.ForeignKey('tblestudiante.id'))
-    cantidadentrada=bd.Column(bd.Integer)
-    cantidadsalida=bd.Column(bd.Integer)
+    registrodentrada=bd.Column(bd.Integer)
+    registrosalida=bd.Column(bd.Integer)
+    fechayhora=bd.Column(bd.String(50))
     
 def __init__(self,cantidadentrada,cantidadsalida):
     self.cantidadentrada = cantidadentrada
