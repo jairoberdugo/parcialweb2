@@ -18,4 +18,4 @@ with app.app_context():
 
 class AsistenciaSchema(ma.Schema):
     class Meta:
-        fields=('id','registrodentrada','registrosalida', 'fechayhora')
+        fields=('id','registrodentrada','registrosalida', 'fechayhora','idEstudiante_fk')

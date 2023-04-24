@@ -18,4 +18,4 @@ with app.app_context():
 
 class EstudianteSchema(ma.Schema):
     class Meta:
-        fields=('id','fullname','email', 'estado')
+        fields=('id','fullname','email', 'estado','Idusuario_fk')

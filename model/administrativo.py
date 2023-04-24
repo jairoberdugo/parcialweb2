@@ -17,4 +17,4 @@ with app.app_context():
 
 class AdministrativoSchema(ma.Schema):
     class Meta:
-        fields=('id','fullname','email')
+        fields=('id','fullname','email','Idusuario_fk')

@@ -1,4 +1,5 @@
 #importo las dependencias de trabajo
+from flask import Flask, request, jsonify, json, render_template
 from config.db import app, bd
 
 #importamos los modelos
@@ -15,7 +16,7 @@ estudiante_schema = EstudianteSchema()
 estudiante_schema = EstudianteSchema(many=True)
 
 administrativo_schema = AdministrativoSchema()
-administrativo_schema= administrativo_schema(many=True)
+administrativo_schema= AdministrativoSchema(many=True)
 
 asistencia_schema = AsistenciaSchema()
 asistencia_schema = AsistenciaSchema(many=True)
