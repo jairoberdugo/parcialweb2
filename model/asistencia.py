@@ -7,9 +7,10 @@ class Asistencia(bd.Model):
     registrosalida=bd.Column(bd.Integer)
     fechayhora=bd.Column(bd.String(50))
     
-def __init__(self,cantidadentrada,cantidadsalida):
-    self.cantidadentrada = cantidadentrada
-    self.cantidadsalida = cantidadsalida
+def __init__(self,registrodentrada,registrosalida, fechayhora):
+    self.registrodentrada = registrodentrada
+    self.registrosalida = registrosalida
+    self.fechayhora = fechayhora
     
    
 with app.app_context():
@@ -17,4 +18,4 @@ with app.app_context():
 
 class EstudianteSchema(ma.Schema):
     class Meta:
-        fields=('id','cantidadentrada','cantidadsalida')
+        fields=('id','registrodentrada','registrosalida', 'fechayhora')
