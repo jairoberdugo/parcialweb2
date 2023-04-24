@@ -9,12 +9,14 @@ class Asistencia(bd.Model):
     registrosalida=bd.Column(bd.Integer)
     fechayhora_entrd=bd.Column(bd.DateTime)
     fechayhora_sali=bd.Column(bd.DateTime)
+    estado_sesion = bd.Column(bd.String(2))
     
-    def __init__(self,registrodentrada,registrosalida, fechayhora_entrd, fechayhora_salid):
+    def __init__(self,registrodentrada,registrosalida, fechayhora_entrd, fechayhora_salid,estado_sesion):
         self.registrodentrada = registrodentrada
         self.registrosalida = registrosalida
         self.fechayhora_entrd = fechayhora_entrd
         self.fechayhora_sali = fechayhora_salid
+        self.estado_sesion = estado_sesion
         
     
    
