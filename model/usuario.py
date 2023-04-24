@@ -6,9 +6,9 @@ class Usuario(bd.Model):
     clave = bd.Column(bd.String(50))
     rol = bd.Column(bd.String(20))
     
-def __init__(self,usuario,rol):
-    self.usuario = usuario
-    self.rol = rol
+    def __init__(self,usuario,rol):
+        self.usuario = usuario
+        self.rol = rol
     
    
 with app.app_context():
