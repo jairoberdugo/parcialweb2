@@ -6,6 +6,7 @@ class Estudiante(bd.Model):
     email = bd.Column(bd.String(50))
     estado = bd.Column(bd.String(20))
     IdUsuario_fk = bd.Column(bd.Integer, bd.ForeignKey('tblusuario.id'))
+    password = bd.Column(bd.String(20))
     
     def __init__(self,fullname,email, estado):
         self.fullname = fullname
@@ -18,4 +19,4 @@ with app.app_context():
 
 class EstudianteSchema(ma.Schema):
     class Meta:
-        fields=('id','fullname','email', 'estado','Idusuario_fk')
+        fields=('id','fullname','email', 'estado','IdUsuario_fk','password')
