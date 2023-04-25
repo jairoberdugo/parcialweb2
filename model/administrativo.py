@@ -4,12 +4,12 @@ class Administrativo(bd.Model):
     id = bd.Column(bd.Integer,primary_key=True)
     fullname = bd.Column(bd.String(50))
     email = bd.Column(bd.String(50))
-    tipoadmin = bd.Column(bd.String(20))
-    Idusuario_fk = bd.Column(bd.Integer, bd.ForeignKey('tblusuario.id'))
+    IdUsuario_fk = bd.Column(bd.Integer, bd.ForeignKey('tblusuario.id'))
+    password = bd.Column(bd.String(50))
     
-def __init__(self,fullname,email):
-    self.fullname = fullname
-    self.email = email
+    def __init__(self,fullname,email):
+        self.fullname = fullname
+        self.email = email
     
    
 with app.app_context():
@@ -17,4 +17,4 @@ with app.app_context():
 
 class AdministrativoSchema(ma.Schema):
     class Meta:
-        fields=('id','fullname','email','Idusuario_fk')
+        fields=('id','fullname','email','IdUsuario_fk')

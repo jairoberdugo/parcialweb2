@@ -22,22 +22,53 @@ asistencia_schema = AsistenciaSchema()
 asistencia_schema = AsistenciaSchema(many=True)
 
 
-#  ----  GUARDAR A UN USUARIO ADMINISTRATIVO EN LA BASE DE DATOS -----
-@app.route("/saveuser_admin", methods=['POST'])
-def rutanueva():
-    rol = request.json['rol']
-    usuario = request.json['user']
-    clave = request.json['clave']
-    newuserad = Usuario(rol,usuario,clave)
-    fullname = request.json['fullname'] 
-    email = request.json['email']
-    tipoadmin = request.json['tipoadmin']
-    newuser = Administrativo(fullname, email,tipoadmin)
-    bd.session.add(newuserad)
-    bd.session.add(newuser)
+#  ----  GUARDAR USUARIO EN LA BASE DE DATOS -----
+@app.route("/saveusuario", methods=['POST'])
+def savecategoria():
+    namerol = request.json['namerol'] 
+    newusuario = Usuario(namerol)
+    bd.session.add(newusuario)
     bd.session.commit()     
-    return "administrativo guardado"
+    return "usuario,rol registrado."
 
+# --- GUARDAR ADMINISTRATIVO EN LA BASE DE DATOS ----
+@app.route("/saveadmin", methods=['POST'])
+def savecategoria():
+    fullname = request.json['fullname']
+    email = request.json['email']
+    idUsuario_fk = request.json['idUsuario_fk']
+    password = request.json['password']
+    newadmin = Usuario(fullname, email, idUsuario_fk, password)
+    bd.session.add(newadmin)
+    bd.session.commit()     
+    return "admin guardado"
+
+# --- GUARDAR ESTUDIANTE EN LA BASE DE DATOS ----
+@app.route("/saveadmin", methods=['POST'])
+def savecategoria():
+    fullname = request.json['fullname']
+    email = request.json['email']
+    idUsuario_fk = request.json['idUsuario_fk']
+    password = request.json['password']
+    estado = request.json['estado']
+    newestudiante = Usuario(fullname, email, idUsuario_fk, password, estado)
+    bd.session.add(newestudiante)
+    bd.session.commit()     
+    return "estudiante guardado"
+
+# ----- GUARDAR ASISTENCIA EN BASE DE DATOS (SIN CONDICIONES) --------
+@app.route("/saveasistencia", methods=['POST'])
+def saveregistrocompleto():
+    fechayhora_entrd = request.json['fechayhora_entrd']
+    fechayhora_salid = request.json['fechayhora_salid']
+    estado_sesion = request.json['estado_sesion']
+    idEstudiante_fk = request.json['idEstudiante_fk']
+    registro_ent= request.json['registro_ent']
+    registro_sali= request.json['registro_sali']
+    newasistencia = Asistencia(fechayhora_entrd, fechayhora_salid, estado_sesion, idEstudiante_fk, registro_ent, registro_sali)
+    bd.session.add(newasistencia)
+    bd.session.commit()     
+    return "asistencia guardada"
 
 
 

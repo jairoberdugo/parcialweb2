@@ -5,7 +5,7 @@ class Estudiante(bd.Model):
     fullname = bd.Column(bd.String(50))
     email = bd.Column(bd.String(50))
     estado = bd.Column(bd.String(20))
-    Idusuario_fk = bd.Column(bd.Integer, bd.ForeignKey('tblusuario.id'))
+    IdUsuario_fk = bd.Column(bd.Integer, bd.ForeignKey('tblusuario.id'))
     
     def __init__(self,fullname,email, estado):
         self.fullname = fullname
