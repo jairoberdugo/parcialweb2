@@ -169,12 +169,13 @@ def dostablas():
         i+=1	       
         dato[i] = {
         'Nombre: ':estudiante.fullname,
-        'registro entrada: ' :estudiante.registroentrada,
-        'registro salida: ': estudiante.registrosalida,
+        'Email: ': estudiante.email,
+        'registro entrada: ' : asistencia.registroentrada,
+        'registro salida: ': asistencia.registrosalida,
 		'Fecha y hora de entrada: ':asistencia.fechayhora_entrd,
         'Fecha y hora de salida: ':asistencia.fechayhora_salid,                     
         }
-        print(Estudiante.fullname,Asistencia.fechayhora_entrd , Asistencia.fechayhora_salid)
+        print(Estudiante.fullname,Asistencia.registrodentrada, Asistencia.registrosalida, Asistencia.fechayhora_entrd , Asistencia.fechayhora_salid)
     return jsonify(dato)
 
 if __name__ == '__main__':
