@@ -8,10 +8,11 @@ class Estudiante(bd.Model):
     IdUsuario_fk = bd.Column(bd.Integer, bd.ForeignKey('tblusuario.id'))
     password = bd.Column(bd.String(20))
     
-    def __init__(self,fullname,email, estado):
+    def __init__(self,fullname,email, estado, password):
         self.fullname = fullname
         self.email = email
         self.estado = estado
+        self.password = password
     
    
 with app.app_context():
